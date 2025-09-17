@@ -623,6 +623,11 @@ footer {
 }
 
 /* Estilo para a página de privacidade */
+.privacy-page-section {
+  /* Garante que o conteúdo da página de privacidade não fique sob o cabeçalho fixo */
+  padding-top: calc(var(--header-height) + 100px);
+}
+
 .privacy-content {
   /* Centraliza o conteúdo e define uma largura máxima */
   max-width: 800px;
