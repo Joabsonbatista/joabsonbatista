@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Joabson Batista - Desenvolvedor Front-end</title>
+  <meta name="description" content="Portfólio de Joabson Batista - Desenvolvedor Front-end & UX Designer. Veja projetos, habilidades e entre em contato." />
+  <!-- Favicon (ícone da aba do navegador) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+  <!-- Cabeçalhos de Segurança -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://via.placeholder.com; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'none'; object-src 'none'; base-uri 'self';">
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- Otimização de Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link id="google-fonts" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" media="print">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet"></noscript>
+
+  
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#home" class="logo">Meu Portfólio</a>
+        <ul class="nav-links">
+          <li><a href="#home">Início</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+  <!-- Seção Hero -->
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>Olá, eu sou <span>Joabson Batista</span></h1>
+      <h2>Desenvolvedor Front-end & UX Designer</h2>
+      <p>Criando experiências digitais incríveis com código limpo e design intuitivo.</p>
+      <a href="#contato" class="btn">Entre em Contato</a>
+    </div>
+  </section>
+
+  <!-- Sobre Mim -->
+  <section id="sobre" class="sobre">
+    <div class="container">
+      <h2 class="section-title">Sobre Mim</h2>
+      <div class="sobre-conteudo fade-in-element">
+        <div class="foto">
+          <!-- Otimização de Imagem: Lazy Loading + Imagens Responsivas -->
+          <img 
+            src="assets/whatsApp.jpeg" 
+            alt="Foto de Joabson Batista"
+            loading="lazy" decoding="async">
+        </div>
+        <div class="texto">
+          <p> Sou um desenvolvedor front-end com 3 anos de experiência na criação de experiências digitais centradas no usuário. Apaixonado por tecnologia e design, busco sempre unir estética e funcionalidade para entregar produtos rápidos, acessíveis e intuitivos. </p>
+          <p> Quando não estou codando, gosto de caminhar, ler livros de ficção científica e tocar violão. </p>
+          <div class="skills">
+            <h3>Habilidades:</h3>
+            <ul>
+              <li>HTML5 & CSS3</li>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>Figma</li>
+              <li>Git & GitHub</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projetos -->
+  <section id="projetos" class="projetos">
+    <div class="container">
+      <h2 class="section-title">Meus Projetos</h2>
+      <div class="projetos-grid">
+        <div class="projeto-card fade-in-element">
+          <!-- Otimização de Imagem: Lazy Loading + Imagens Responsivas -->
+          <img 
+            src="assets/resort-4471852_1280.jpg" 
+            alt="Resort - Projeto de exemplo"
+            loading="lazy" decoding="async">
+          <h3>Resort</h3>
+          <p>Site responsivo para um resort, com galeria, reservas e informações de comodidades.</p>
+          <a href="projetos/resort/" target="_blank" rel="noopener noreferrer" class="btn">Ver Projeto</a>
+        </div>
+        <div class="projeto-card fade-in-element">
+          <img 
+            src="https://via.placeholder.com/400x250" 
+            alt="Projeto 2"
+            loading="lazy" decoding="async">
+          <h3>App de Tarefas</h3>
+          <p>Aplicativo React para gerenciamento de tarefas diárias com drag & drop.</p>
+          <a href="https://github.com/joabsonbatista/meu-projeto-2" target="_blank" rel="noopener noreferrer" class="btn">Ver Projeto</a>
+        </div>
+        <div class="projeto-card fade-in-element">
+          <img 
+            src="https://via.placeholder.com/400x250" 
+            alt="Projeto 3"
+            loading="lazy" decoding="async">
+          <h3>Landing Page SaaS</h3>
+          <p>Landing page moderna para startup de tecnologia, com animações suaves.</p>
+          <a href="https://github.com/joabsonbatista/meu-projeto-3" target="_blank" rel="noopener noreferrer" class="btn">Ver Projeto</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+<section id="contato" class="contato">
+  <div class="container">
+    <h2 class="section-title">Entre em Contato</h2>
+    <p>Quer trabalhar juntos ou tirar uma dúvida? Envie uma mensagem!</p>
+  <form id="form-contato" action="https://formspree.io/f/mkgvlnwn" method="POST" class="fade-in-element">
+      <div class="form-group">
+        <label for="nome" class="sr-only">Seu Nome</label>
+        <input type="text" id="nome" name="name" placeholder="Seu Nome" required autocomplete="name" aria-describedby="erro-nome">
+        <span class="erro" id="erro-nome"></span>
+      </div>
+      <div class="form-group">
+        <label for="email" class="sr-only">Seu E-mail</label>
+        <input type="email" id="email" name="_replyto" placeholder="Seu E-mail" required autocomplete="email" aria-describedby="erro-email">
+        <span class="erro" id="erro-email"></span>
+      </div>
+      <div class="form-group">
+        <label for="mensagem" class="sr-only">Sua Mensagem</label>
+        <textarea id="mensagem" name="message" placeholder="Sua Mensagem" rows="5" required autocomplete="off" aria-describedby="erro-mensagem"></textarea>
+        <span class="erro" id="erro-mensagem"></span>
+      </div>
+    <!-- Honeypot field for spam protection -->
+    <div class="form-group honeypot-field" aria-hidden="true">
+        <label for="honeypot">Não preencha este campo se você for humano:</label>
+        <input type="text" id="honeypot" name="honeypot" autocomplete="off" tabindex="-1">
+    </div>
+    <div class="form-group consent">
+      <label>
+        <input type="checkbox" id="consent" required aria-describedby="erro-consent">
+        Concordo em enviar meus dados conforme a <a href="privacy.html" class="highlight-link">política de privacidade</a>.
+      </label>
+        <span class="erro" id="erro-consent"></span>
+      </div>
+  <button type="submit" class="btn">Enviar Mensagem</button>
+  <!-- Mensagem de validação exemplo -->
+  <span class="sucesso" id="sucesso-mensagem"></span>
+  <span class="erro" id="erro-envio"></span>
+    </form>
+    <ul class="redes-sociais">
+      <li><a href="https://github.com/joabsonbatista" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.11.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.222.687.825.577C20.565 21.797 24 17.3 24 12 24 5.373 18.627 0 12 0z"></path></svg>
+      </a></li>
+      <li><a href="https://linkedin.com/in/joabsonbatista" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 11-4.125 0 2.062 2.062 0 014.125 0zM7.44 20.452H3.252V9h4.188v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path></svg>
+      </a></li>
+      <li><a aria-label="Instagram (em breve)" class="disabled-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.802c-3.143 0-3.505.012-4.73.068-2.79.128-3.976 1.31-4.104 4.104-.056 1.225-.068 1.587-.068 4.73s.012 3.505.068 4.73c.128 2.794 1.31 3.976 4.104 4.104 1.225.056 1.587.068 4.73.068s3.505-.012 4.73-.068c2.794-.128 3.976-1.31 4.104-4.104.056-1.225.068-1.587.068-4.73s-.012-3.505-.068-4.73c-.128-2.794-1.31-3.976-4.104-4.104-1.225-.056-1.587-.068-4.73-.068zm0 5.838a5.162 5.162 0 100 10.324 5.162 5.162 0 000-10.324zm0 8.522a3.36 3.36 0 110-6.72 3.36 3.36 0 010 6.72zM20.965 5.25a1.44 1.44 0 10-2.88 0 1.44 1.44 0 002.88 0z"></path></svg>
+      </a></li>
+      <li><a aria-label="Twitter (em breve)" class="disabled-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.643 4.937c-.835.37-1.732.62-2.675.733a4.67 4.67 0 002.048-2.578 9.3 9.3 0 01-2.958 1.13 4.66 4.66 0 00-7.938 4.25 13.229 13.229 0 01-9.602-4.868c-.333.57-.523 1.235-.523 1.942 0 1.62.823 3.055 2.078 3.888a4.635 4.635 0 01-2.11-.583v.06a4.66 4.66 0 003.733 4.568 4.69 4.69 0 01-2.104.08 4.661 4.661 0 004.352 3.234 9.348 9.348 0 01-5.786 1.995c-.376 0-.747-.022-1.112-.065a13.175 13.175 0 007.14 2.093c8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602a9.47 9.47 0 002.323-2.41z"></path></svg>
+      </a></li>
+    </ul>
+  </div>
+</section>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="current-year">2024</span> Joabson Batista. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Botão Voltar ao Topo -->
+  <a href="#home" class="back-to-top" aria-label="Voltar ao topo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"/></svg>
+  </a>
+
+  <!-- Carregar script principal -->
+  <script src="script.js" defer></script>
+
+</body>
+</html>

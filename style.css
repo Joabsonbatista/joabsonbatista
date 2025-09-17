@@ -1,0 +1,678 @@
+/* Reset e Configurações Globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tema: Futuristic Black - variáveis */
+:root {
+  --bg: #0a0a0f;
+  --surface: #0f1116;
+  --muted-surface: #141621;
+  --text: #e6eef6;
+  --muted-text: #9fb0c8;
+  --accent: #00f0ff; /* ciano neon */
+  --accent-2: #ff3ec9; /* magenta */
+  --glow: rgba(0,240,255,0.12);
+  --radius: 10px;
+  --transition-speed: 0.2s;
+  --header-height: 70px; /* Altura do cabeçalho centralizada */
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height); /* Evita que o cabeçalho fixo cubra o título da seção */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--bg);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(90deg, rgba(0,240,255,0.12), rgba(255,62,201,0.12));
+  color: var(--text);
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: box-shadow var(--transition-speed) ease, transform var(--transition-speed) ease;
+  margin-top: 15px;
+  border: 1px solid rgba(255,255,255,0.03);
+  backdrop-filter: blur(4px);
+}
+
+.btn:hover {
+  box-shadow: 0 6px 18px rgba(0,240,255,0.08), 0 2px 6px rgba(0,0,0,0.6);
+  transform: translateY(-2px);
+}
+
+/* Foco visível para acessibilidade via teclado */
+.btn:focus-visible, .nav-links a:focus-visible, .redes-sociais a:focus-visible, .hamburger:focus-visible, .highlight-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Cabeçalho */
+header {
+  background: var(--surface);
+  box-shadow: 0 2px 20px rgba(2,6,23,0.7);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height); /* Define a altura do cabeçalho */
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  font-weight: 500;
+  transition: color var(--transition-speed);
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.nav-links a.active-link {
+  color: var(--accent);
+  text-shadow: 0 0 8px var(--glow);
+}
+
+.hamburger {
+  padding: 15px;
+  display: none; /* Mantém escondido por padrão, aparece na media query */
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  overflow: visible;
+}
+
+.hamburger-box {
+  width: 30px;
+  height: 24px;
+  display: block;
+  position: relative;
+}
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -1.5px; /* Centraliza a barra */
+}
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+  width: 30px;
+  height: 3px; /* Espessura das barras */
+  background-color: var(--text);
+  border-radius: 4px;
+  position: absolute;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+.hamburger-inner::before, .hamburger-inner::after {
+  content: "";
+  display: block;
+  transition: transform 0.2s ease-in-out;
+}
+.hamburger-inner::before {
+  top: -10px;
+}
+.hamburger-inner::after {
+  bottom: -10px;
+}
+
+/* Animação para "X" quando o menu está aberto */
+.hamburger[aria-expanded="true"] .hamburger-inner {
+  background-color: transparent; /* Esconde a barra do meio */
+}
+.hamburger[aria-expanded="true"] .hamburger-inner::before {
+  transform: translateY(10px) rotate(45deg);
+}
+.hamburger[aria-expanded="true"] .hamburger-inner::after {
+  transform: translateY(-10px) rotate(-45deg);
+}
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 100vh; /* Ocupa a tela inteira */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  text-align: center;
+  overflow: hidden; /* evita que filhos saiam do bloco visual */
+  /* Camadas de fundo: a grade móvel fica por cima dos gradientes */
+  background: 
+              /* Camada 1: Grade móvel */
+              repeating-linear-gradient(45deg, rgba(0,240,255,0.03), rgba(0,240,255,0.03) 1px, transparent 1px, transparent 50px),
+              repeating-linear-gradient(-45deg, rgba(255,62,201,0.03), rgba(255,62,201,0.03) 1px, transparent 1px, transparent 50px),
+              /* Camada 2: Gradientes estáticos */
+              radial-gradient(circle at 10% 10%, rgba(0,240,255,0.04), transparent 8%),
+              radial-gradient(circle at 90% 90%, rgba(255,62,201,0.03), transparent 12%),
+              linear-gradient(135deg, rgba(106,17,203,0.16) 0%, rgba(37,117,252,0.12) 100%);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(106,17,203,0.45), rgba(37,117,252,0.45));
+  z-index: 1;
+  background-size: 200% 200%;
+  animation: gradiente-animado 12s ease infinite;
+}
+
+@keyframes gradiente-animado {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Desativa a animação do gradiente se o usuário preferir movimento reduzido */
+  .hero::before { animation: none; }
+}
+
+.hero > .container {
+  position: relative;
+  z-index: 2; /* garante que o conteúdo fique acima do overlay */
+  padding-top: var(--header-height); /* Garante que o conteúdo não fique sob o header */
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-shadow: 0 6px 30px rgba(0,240,255,0.04), 0 2px 8px rgba(255,62,201,0.03);
+}
+
+/* Aplica a fonte especial aos títulos principais */
+.hero h1, .hero h2, .section-title {
+  font-family: 'Orbitron', system-ui, sans-serif;
+}
+
+.hero h1 span {
+  color: #ffeb3b; /* Cor de destaque para o nome */
+}
+
+.hero h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+/* Título Padrão para Seções */
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: var(--accent);
+}
+
+/* Sobre */
+.sobre {
+  padding: 100px 0;
+  background: var(--muted-surface);
+}
+
+.sobre-conteudo {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.sobre-conteudo .foto img {
+  width: 100%; /* Ocupa a largura do contêiner pai */
+  max-width: 300px; /* Limita o tamanho máximo da foto */
+  aspect-ratio: 1 / 1; /* Força a imagem a ser um quadrado (proporção 1:1) */
+  object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+  border-radius: 50%; /* Transforma a imagem em um círculo */
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+}
+
+.sobre-conteudo .texto {
+  flex: 1;
+}
+
+.skills h3 {
+  margin: 20px 0 10px;
+  color: var(--accent-2);
+}
+
+.skills ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skills li {
+  background: rgba(255,255,255,0.03);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+/* Destaque para links importantes como política de privacidade */
+.highlight-link {
+  color: var(--accent);
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color var(--transition-speed);
+}
+.highlight-link:hover {
+  color: var(--accent-2);
+}
+
+/* Projetos */
+.projetos {
+  padding: 100px 0;
+  background: transparent;
+}
+
+.projetos .section-title {
+  text-shadow: 0 8px 40px rgba(0,240,255,0.04);
+}
+
+.projetos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.projeto-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(2,6,23,0.7);
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.projeto-card:hover {
+  transform: translateY(-8px) scale(1.01);
+}
+
+.projeto-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  filter: saturate(0.95) contrast(0.95);
+}
+
+.projeto-card h3 {
+  padding: 20px 20px 0;
+  font-size: 1.3rem;
+  color: var(--text);
+}
+
+.projeto-card p {
+  padding: 0 20px 20px;
+  color: var(--muted-text);
+}
+
+.projeto-card .btn {
+  margin: 0 20px 20px;
+}
+
+/* Contato */
+.contato {
+  padding: 100px 0;
+  background: var(--muted-surface);
+  text-align: center;
+}
+
+.contato p {
+  margin-bottom: 40px;
+  font-size: 1.1rem;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  color: var(--text);
+}
+
+form input:focus, form textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+form .btn {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #041017;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+/* Efeito combinado para hover e foco do botão de envio */
+form .btn:hover,
+form .btn:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,240,255,0.08);
+}
+
+/* Melhora a UX do checkbox de consentimento */
+.form-group.consent label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left; /* Alinha o texto à esquerda dentro do container do formulário centralizado */
+  font-size: 0.9rem; /* Ajusta o tamanho da fonte para ser mais delicado */
+  color: var(--muted-text);
+}
+
+.form-group.consent input[type="checkbox"] {
+  /* Aumenta o tamanho do checkbox */
+  width: 20px !important; /* Força um tamanho fixo e maior */
+  height: 20px !important; /* Força um tamanho fixo e maior */
+  /* Garante que o checkbox não tenha margens estranhas */
+  margin: 0;
+  flex-shrink: 0; /* Impede que o checkbox encolha */
+  /* Estiliza a cor do checkbox para combinar com o tema */
+  accent-color: var(--accent);
+}
+ 
+.erro {
+  color: #e53935;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: block;
+  min-height: 1.2rem;
+}
+
+.sucesso {
+  background: linear-gradient(90deg, rgba(0,255,170,0.06), rgba(0,0,0,0.02));
+  color: var(--text);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 500;
+  border: 1px solid rgba(0,240,255,0.06);
+  /* Para animação de fade */
+  opacity: 0;
+  transform: translateY(-10px);
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.sucesso.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.form-group {
+  position: relative;
+}
+
+input.error, textarea.error {
+  border-color: #e53935;
+}
+
+
+.redes-sociais {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 1.5rem;
+}
+
+.redes-sociais a {
+  color: var(--accent-2);
+  transition: color var(--transition-speed);
+}
+
+.redes-sociais a:hover {
+  color: var(--accent);
+}
+
+.redes-sociais a svg {
+  width: 1em;
+  height: 1em;
+  display: block;
+}
+
+/* Animações de Scroll (Fade-in) */
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-element.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Footer */
+footer {
+  background: var(--surface);
+  color: var(--muted-text);
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .hamburger {
+    display: inline-block; /* Garante alinhamento correto com o logo */
+  }
+
+  .nav-links {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    background: var(--surface);
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; /* Aumenta o espaçamento vertical entre os links */
+    justify-content: center;
+    transform: translateX(-100%);
+    transition: transform var(--transition-speed) ease-in-out;
+    box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    z-index: 999; /* Garante que o menu fique acima do conteúdo principal, mas abaixo do header */
+  }
+
+  /* Aumenta o tamanho da fonte dos links no menu mobile para melhor toque e legibilidade */
+  .nav-links a {
+    display: block; /* Transforma o link em um bloco */
+    width: 80%; /* Define uma largura igual para todos */
+    max-width: 300px; /* Limite para telas maiores (tablets) */
+    padding: 15px 0; /* Adiciona espaçamento interno para criar altura */
+    text-align: center; /* Centraliza o texto */
+    font-size: 1.5rem;
+    border-radius: var(--radius);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+  }
+
+  /* Efeito de hover e foco para os links do menu mobile */
+  .nav-links a:hover, .nav-links a:focus-visible {
+    background-color: var(--muted-surface);
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero h2 {
+    font-size: 1.2rem;
+  }
+
+  .sobre-conteudo {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .skills ul {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero h2 {
+    font-size: 1.1rem;
+  }
+
+  .projetos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Ajusta o tamanho dos campos do formulário em telas pequenas */
+  form input, form textarea {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+
+/* Classe para esconder elementos visualmente mas mantê-los para leitores de tela */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Estilo para a página de privacidade */
+.privacy-content {
+  /* Centraliza o conteúdo e define uma largura máxima */
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 40px 20px;
+}
+
+.privacy-content h1,
+.privacy-content h2 {
+  font-family: 'Orbitron', system-ui, sans-serif; /* Mantém a consistência com os títulos do site */
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.privacy-content p,
+.privacy-content li {
+  color: var(--muted-text);
+  margin-bottom: 15px;
+}
+
+.privacy-content ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+/* Honeypot field for spam protection - visually hidden but available for bots */
+.honeypot-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Desativa a transição do menu durante o redimensionamento para evitar o "flash" */
+body.is-resizing .nav-links {
+  transition: none;
+}
+
+/* Botão Voltar ao Topo */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--accent);
+  color: var(--bg);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 240, 255, 0.2);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover { background: var(--accent-2); }
+.back-to-top svg { width: 24px; height: 24px; }
