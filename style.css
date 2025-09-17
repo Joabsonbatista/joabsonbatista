@@ -408,6 +408,15 @@ form .btn:focus-visible {
   box-shadow: 0 10px 30px rgba(0,240,255,0.08);
 }
 
+form .btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background: var(--muted-surface);
+  color: var(--muted-text);
+  box-shadow: none;
+  transform: none;
+}
+
 /* Melhora a UX do checkbox de consentimento */
 .form-group.consent label {
   cursor: pointer;
