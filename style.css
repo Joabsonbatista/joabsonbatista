@@ -492,6 +492,12 @@ input.error, textarea.error {
   display: block;
 }
 
+.redes-sociais a.disabled-link {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none; /* Impede que eventos de clique sejam disparados */
+}
+
 /* Animações de Scroll (Fade-in) */
 .fade-in-element {
   opacity: 0;
