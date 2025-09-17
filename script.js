@@ -17,27 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const isExpanded = navLinks.classList.contains('active');
       hamburger.setAttribute('aria-expanded', isExpanded);
     });
-
-    // Lógica de navegação robusta para todos os links da navegação (desktop e mobile)
-    nav.addEventListener('click', (e) => {
-      const link = e.target.closest('a[href^="#"]');
-      if (!link) return;
-
-      e.preventDefault();
-
-      const href = link.getAttribute('href');
-      const targetElement = document.querySelector(href);
-
-      // Fecha o menu mobile se estiver aberto
-      if (navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
-      }
-
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
   }
 
   // --- Funções Auxiliares (Escopo Local) ---
@@ -45,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const consentEl = document.getElementById('consent');
       const hasConsent = !!(consentEl && consentEl.checked);
-      // Não salvar se sem consentimento
+      // Não salvar se não houver consentimento
       if (!hasConsent) return;
       // Validações básicas
       if (!nome && !email && !mensagem) return;
@@ -65,8 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function mostrarErro(campo, mensagem) {
     const input = document.getElementById(campo);
     const erroSpan = document.getElementById('erro-' + campo);
-    if (input) input.classList.add('error');
-    if (erroSpan) erroSpan.textContent = mensagem;
+    if (input) { input.classList.add('error'); }
+    if (erroSpan) { erroSpan.textContent = mensagem; }
   }
 
   function limparErros() {
@@ -197,7 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const action = form.getAttribute('action');
-
       // Preparar dados para envio
       const formData = new FormData();
       formData.append('name', nome);
@@ -227,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }).catch(err => {
           // Log de aviso (evitar expor dados sensíveis em console de produção)
-          console.warn('Erro envio Formspree:', err);
+          console.warn('Erro no envio para o Formspree:', err);
           if (erroEnvio) erroEnvio.textContent = 'Erro ao enviar. Mensagem salva localmente.';
           // fallback: salvar localmente (apenas com consentimento)
           salvarLocalmente(nome, email, mensagem);
@@ -285,15 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
         backToTopButton.classList.remove('visible');
       }
     });
-
-    // Adiciona a lógica de scroll suave via JS para consistência
-    backToTopButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetElement = document.querySelector(backToTopButton.getAttribute('href'));
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
   }
 
   // --- Lógica para destacar link ativo na navegação ---
@@ -341,4 +310,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     animatedElements.forEach(el => scrollObserver.observe(el));
   }
+
+  // --- Lógica Unificada de Scroll Suave ---
+  // Delega o evento de clique para o body para capturar todos os links de âncora da página
+  document.body.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    
+    // Garante que o link existe e pertence à página atual (não é um link para outra página como privacy.html)
+    if (!link || new URL(link.href).pathname !== window.location.pathname) {
+      return;
+    }
+
+    e.preventDefault();
+    const targetElement = document.querySelector(link.getAttribute('href'));
+
+    // Fecha o menu mobile se estiver aberto e o clique veio de dentro dele
+    if (navLinks && navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
 });
