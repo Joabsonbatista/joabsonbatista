@@ -1,0 +1,161 @@
+/* --- GERAL E VARIÁVEIS --- */
+:root {
+    --primary-color: #0a2e36; /* Azul escuro, quase preto */
+    --secondary-color: #f2f2f2; /* Branco suave */
+    --accent-color: #c5a880; /* Dourado/Bege para detalhes */
+    --text-color: #333;
+    --header-height: 70px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    color: var(--text-color);
+    background-color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- COMPONENTES (BOTÃO) --- */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #b3956d;
+}
+
+/* --- HEADER --- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.nav-links-desktop {
+    display: none; /* Escondido em mobile por padrão */
+}
+
+.hamburger {
+    display: block; /* Visível em mobile por padrão */
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+.btn-header {
+    display: none; /* Escondido em mobile por padrão */
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    /* A imagem de fundo */
+    background-image: url('../../assets/resort-4471852_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Overlay escuro para a imagem de fundo */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    position: relative; /* Para ficar acima do overlay */
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+
+/* --- RESPONSIVIDADE (Desktop) --- */
+@media (min-width: 768px) {
+    .hamburger {
+        display: none; /* Esconde o hamburger no desktop */
+    }
+
+    .nav-links-desktop {
+        display: flex;
+        gap: 30px;
+    }
+
+    .nav-links-desktop a:hover {
+        color: var(--accent-color);
+    }
+
+    .btn-header {
+        display: inline-block; /* Mostra o botão de reservar no desktop */
+    }
+
+    .hero-title {
+        font-size: 4.5rem;
+    }
+}
